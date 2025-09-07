@@ -9,6 +9,13 @@ public class Client{
         System.out.println("Connected to Server...");
         BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 
-        
+        String cipherText = br.readLine();
+        System.out.println("Encrypted text [Received]: " + cipherText);
+
+        System.out.print("Enter key: ");
+        String key = sc.nextLine();
+
+        String plainText = CommonUtils.vignere_decrypt(cipherText, key);
+        System.out.println("Decrypted text: " + plainText);
     }
 }

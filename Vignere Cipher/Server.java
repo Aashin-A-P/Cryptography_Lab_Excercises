@@ -10,5 +10,17 @@ public class Server{
         Socket s = ss.accept();
         System.out.println("Client Connected...");
         PrintWriter pw = new PrintWriter(s.getOutputStream(),true);
+
+        System.out.print("Enter plain text: ");
+        String plainText = sc.nextLine();
+
+        System.out.print("Enter Key: ");
+        String key = sc.nextLine();
+
+        String cipherText = CommonUtils.vignere_encrypt(plainText, key);
+        System.out.println("Encrypted text: " + cipherText);
+        pw.println(cipherText);
+
+        ss.close();
     }
 }
